@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class RoomNodeSO : ScriptableObject
 {
@@ -12,6 +13,8 @@ public class RoomNodeSO : ScriptableObject
     public RoomNodeTypeSO roomType;
 #if UNITY_EDITOR
     public Rect rect;
+    public bool isLeftClickDragging = false;
+    public bool isSelected = false;
     public void Initialize(Rect rect,RoomNodeGraphSO parentGraph,RoomNodeTypeSO roomType)
     {
         this.rect = rect;
@@ -19,7 +22,6 @@ public class RoomNodeSO : ScriptableObject
         this.parentGraph = parentGraph;
         this.roomType = roomType;
         this.name = "Room Node";
-       
 
     }
 
@@ -49,6 +51,82 @@ public class RoomNodeSO : ScriptableObject
             result.Add(roomNodeTypeSOList[i].roomNodeTypeName);
         }
         return result.ToArray();
+    }
+
+    public void ProcessEvents(Event currentEvent)
+    {
+        switch (currentEvent.type)
+        {
+            case EventType.MouseDown:
+                ProcessMouseDownEvent(currentEvent);
+                break;
+            case EventType.MouseUp:
+                ProcessMouseUpEvent(currentEvent);
+                break;
+            case EventType.MouseDrag:
+                ProcessMouseDragEvent(currentEvent);
+                break;
+        }
+    }
+
+    private void ProcessMouseDragEvent(Event currentEvent)
+    {
+        if (currentEvent.button == 0)
+        {
+            ProcessLeftMouseDragEvent(currentEvent); 
+        }
+    }
+
+    private void ProcessLeftMouseDragEvent(Event currentEvent)
+    {
+        isLeftClickDragging = true;
+        DragNode(currentEvent.delta);
+        GUI.changed = true;
+    }
+
+    private void DragNode(Vector2 delta)
+    {
+        rect.position += delta;
+        EditorUtility.SetDirty(this);
+    }
+    private void ProcessMouseUpEvent(Event currentEvent)
+    {
+        if (currentEvent.button == 0)
+        {
+            ProcessLeftMouseUpEvent(currentEvent);
+        }
+    }
+
+    private void ProcessLeftMouseUpEvent(Event currentEvent)
+    {
+        if (isLeftClickDragging)
+        {
+            isLeftClickDragging = false;
+        }
+    }
+
+    private void ProcessMouseDownEvent(Event currentEvent)
+    {
+        //left mouse button
+        if (currentEvent.button == 0)
+        {
+            ProcessLeftMouseDownEvent(currentEvent);
+        }
+    }
+
+
+    private void ProcessLeftMouseDownEvent(Event currentEvent)
+    {
+        Selection.activeObject = this;
+        isSelected = !isSelected;
+    }
+    
+    public void ResetSelected()
+    {
+        if (isSelected == true)
+        {
+            isSelected = false;
+        }
     }
 #endif
 

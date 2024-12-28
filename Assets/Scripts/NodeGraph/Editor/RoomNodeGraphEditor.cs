@@ -7,13 +7,15 @@ public class RoomNodeGraphEditor : EditorWindow
 {
     private GUIStyle roomNodeStyle;
     private static RoomNodeGraphSO currentRoomNodeGraph;
+    private RoomNodeSO preRoomNode = null;
+    private RoomNodeSO currentRoomNode = null;
 
     private const float nodeWidth = 160f;
     private const float nodeHeight = 75f;
     private const int nodePadding=25;
     private const int nodeBorder = 12;
 
-
+    public EventHandler OnChangedSelectedRoomNode;
 
     private void OnEnable()
     {
@@ -37,7 +39,6 @@ public class RoomNodeGraphEditor : EditorWindow
         RoomNodeGraphSO roomNodeGraph = EditorUtility.InstanceIDToObject(instanceID) as RoomNodeGraphSO;
         if (roomNodeGraph != null)
         {
-            Debug.Log("111");
             OpenWindow();
             currentRoomNodeGraph = roomNodeGraph;
             return true;
@@ -63,11 +64,43 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void ProcessEvents(Event currentEvent)
     {
+        preRoomNode = currentRoomNode;
+        currentRoomNode = RaycastMouseOverRoomNode(currentEvent);
+
+
+
+
         ProcessRoomNodeGraphEvents(currentEvent);
+        if (currentRoomNode != null)
+        {
+/*            if (preRoomNode!=null&&preRoomNode != currentRoomNode)
+            {
+                preRoomNode.ResetSelected();
+            }*/
+            currentRoomNode.ProcessEvents(currentEvent);
+        }
+
     }
 
+    
+    
+    
+    private RoomNodeSO RaycastMouseOverRoomNode(Event currentEvent)
+    {
+        foreach(var node in currentRoomNodeGraph.roomNodeList)
+        {
+            if (node.rect.Contains(currentEvent.mousePosition))
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+    
+    
     private void ProcessRoomNodeGraphEvents(Event currentEvent)
     {
+        if (currentRoomNode != null) return;
         switch (currentEvent.type)
         {
             case EventType.MouseDown:
@@ -77,6 +110,9 @@ public class RoomNodeGraphEditor : EditorWindow
                 break;
         }
     }
+
+
+
 
     private void ProcessMouseDownEvent(Event currentEvent)
     {
