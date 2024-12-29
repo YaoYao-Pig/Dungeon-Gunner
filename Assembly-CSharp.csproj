@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeSO.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeTypeSO.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameResources.cs" />
+    <Compile Include="Assets\Scripts\Misk\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

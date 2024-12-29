@@ -10,7 +10,6 @@ public class RoomNodeGraphSO : ScriptableObject
     public List<RoomNodeSO> roomNodeList = new List<RoomNodeSO>();
     public Dictionary<string, RoomNodeSO> roomNodeDictionary = new Dictionary<string, RoomNodeSO>();
 
-
     private void Awake()
     {
         LoadRoomNodeDictionary();
@@ -24,7 +23,11 @@ public class RoomNodeGraphSO : ScriptableObject
             roomNodeDictionary.Add(node.id,node);
         }
     }
+
+    
 #if UNITY_EDITOR
+
+
 
 
     private void OnValidate()
@@ -41,7 +44,14 @@ public class RoomNodeGraphSO : ScriptableObject
         linePosition = position;
     }
 
-
+    public RoomNodeSO GetRoomNode(string roomID)
+    {
+        if(roomNodeDictionary.TryGetValue(roomID,out RoomNodeSO result))
+        {
+            return result;
+        }
+        return null;
+    }
 
 #endif
 }

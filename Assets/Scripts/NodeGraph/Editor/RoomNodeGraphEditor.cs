@@ -90,7 +90,8 @@ public class RoomNodeGraphEditor : EditorWindow
         {
             foreach(var childNodeID in node.childRoomNodeIDList)
             {
-                if(currentRoomNodeGraph.roomNodeDictionary.TryGetValue(childNodeID,out RoomNodeSO childNode))
+                RoomNodeSO childNode = currentRoomNodeGraph.GetRoomNode(childNodeID);
+                if (childNode)
                 {
 
 
@@ -194,8 +195,11 @@ public class RoomNodeGraphEditor : EditorWindow
         {
             if (currentRoomNode != null)
             {
-                currentRoomNodeGraph.roomNodeToDrawLineFrom.AddChildRoomNode(currentRoomNode.id);
-                currentRoomNode.AddParentRoomNode(currentRoomNodeGraph.roomNodeToDrawLineFrom.id);
+               if(currentRoomNodeGraph.roomNodeToDrawLineFrom.AddChildRoomNode(currentRoomNode.id))
+                {
+                    currentRoomNode.AddParentRoomNode(currentRoomNodeGraph.roomNodeToDrawLineFrom.id);
+                }
+                
             
             }
             ClearLineDrag();
@@ -257,9 +261,30 @@ public class RoomNodeGraphEditor : EditorWindow
         menu.AddItem(new GUIContent("Create Room Node"), false, o => CreateRoomNode(o, 
             GameResources.Instance.GetRoomNodeTypeList().Find(x => x.isNone)), 
             mousePosition);
+        menu.AddSeparator("");
+        menu.AddItem(new GUIContent("Select All Room Node"), false, SelectedAllRoomNode);
+        menu.AddItem(new GUIContent("UnSelect All Room Node"), false, UnSelectedAllRoomNode);
         menu.ShowAsContext();
     }
 
+    private void SelectedAllRoomNode()
+    {
+
+        foreach(var node in currentRoomNodeGraph.roomNodeList)
+        {
+            node.isSelected = true;
+        }
+        GUI.changed = true;
+    }
+
+    private void UnSelectedAllRoomNode()
+    {
+        foreach (var node in currentRoomNodeGraph.roomNodeList)
+        {
+            node.isSelected = false;
+        }
+        GUI.changed = true;
+    }
 
     private void CreateRoomNode(object mousePositionObject,RoomNodeTypeSO roomNodeType)
     {

@@ -155,7 +155,96 @@ public class RoomNodeSO : ScriptableObject
 
     public bool AddChildRoomNode(string childID)
     {
-        childRoomNodeIDList.Add(childID);
+        if (isChildRoomAddValid(childID))
+        {
+            childRoomNodeIDList.Add(childID);
+            return true;
+        }
+        return false;
+    }
+
+    private bool isChildRoomAddValid(string childID)
+    {
+        RoomNodeSO childNode = parentGraph.GetRoomNode(childID);
+
+        if (childNode == null) return false;
+
+        //Boos Room;
+        bool isConnectedBossodeAlready = false;
+        if (childNode.roomType.isBossRoom)
+        {
+            foreach(RoomNodeSO roomNode in parentGraph.roomNodeList)
+            {
+                if (roomNode.roomType.isBossRoom && roomNode.parentRoomNodeIDList.Count > 0)
+                {
+                    isConnectedBossodeAlready = true;
+                }
+            }
+        }
+        if (childNode.roomType.isBossRoom && isConnectedBossodeAlready)
+        {
+            return false;
+        }
+
+        if (childNode.roomType.isNone)
+        {
+            return false;
+
+        }
+
+        //父子环
+        if (parentRoomNodeIDList.Contains(childID))
+        {
+            return false;
+        }
+        //自环
+        if (id == childID)
+        {
+            return false;
+        }
+        //不重复包含
+        if (childRoomNodeIDList.Contains(childID))
+        {
+            return false;
+        }
+
+
+
+
+        if (childNode.parentRoomNodeIDList.Count ==1)
+        {
+            return false;
+        }
+
+        //不允许两个走廊相连
+        if (childNode.roomType.isCorridor && roomType.isCorridor)
+        {
+            return false;
+        }
+        //不允许两个房间相连
+        if (!childNode.roomType.isCorridor && !roomType.isCorridor)
+        {
+            return false;
+        }
+
+        //链接最大值
+        if (childNode.roomType.isCorridor && childRoomNodeIDList.Count >= Settings.maxChildCorridors)
+        {
+            return false;
+        }
+
+        if (childNode.roomType.isEntrance)
+        {
+            return false;
+        }
+
+        if (!childNode.roomType.isCorridor && childRoomNodeIDList.Count > 0)
+        {
+            return false;
+        }
+
+
+
         return true;
     }
 
