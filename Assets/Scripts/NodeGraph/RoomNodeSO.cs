@@ -29,10 +29,19 @@ public class RoomNodeSO : ScriptableObject
     {
         GUILayout.BeginArea(rect, nodeStyle);
         EditorGUI.BeginChangeCheck();
-        int selected = GameResources.Instance.GetRoomNodeTypeList().FindIndex(x => x == roomType);
-        //下拉选择
-        int selection = EditorGUILayout.Popup("", selected, GetRoomNodeTypesToDisplay());
-        roomType = GameResources.Instance.GetRoomNodeTypeList()[selection];
+
+        if (parentRoomNodeIDList.Count > 0 || roomType.isEntrance)
+        {
+            EditorGUILayout.LabelField(roomType.roomNodeTypeName);
+        }
+        else
+        {
+            int selected = GameResources.Instance.GetRoomNodeTypeList().FindIndex(x => x == roomType);
+            //下拉选择
+            int selection = EditorGUILayout.Popup("", selected, GetRoomNodeTypesToDisplay());
+            roomType = GameResources.Instance.GetRoomNodeTypeList()[selection];
+        }
+
         if (EditorGUI.EndChangeCheck())
         {
             EditorUtility.SetDirty(this);
@@ -75,6 +84,13 @@ public class RoomNodeSO : ScriptableObject
         {
             ProcessLeftMouseDragEvent(currentEvent); 
         }
+
+    }
+
+    private void ProcessRightMouseDownEvent(Event currentEvent)
+    {
+        Debug.Log("Right on Room");
+        parentGraph.SetNodeToDrawConnectionLineFrom(this, currentEvent.mousePosition);
     }
 
     private void ProcessLeftMouseDragEvent(Event currentEvent)
@@ -91,6 +107,7 @@ public class RoomNodeSO : ScriptableObject
     }
     private void ProcessMouseUpEvent(Event currentEvent)
     {
+        Debug.Log("up");
         if (currentEvent.button == 0)
         {
             ProcessLeftMouseUpEvent(currentEvent);
@@ -112,6 +129,10 @@ public class RoomNodeSO : ScriptableObject
         {
             ProcessLeftMouseDownEvent(currentEvent);
         }
+        else if (currentEvent.button == 1)
+        {
+            ProcessRightMouseDownEvent(currentEvent);
+        }
     }
 
 
@@ -127,6 +148,21 @@ public class RoomNodeSO : ScriptableObject
         {
             isSelected = false;
         }
+    }
+
+
+
+
+    public bool AddChildRoomNode(string childID)
+    {
+        childRoomNodeIDList.Add(childID);
+        return true;
+    }
+
+    public bool AddParentRoomNode(string parentID)
+    {
+        parentRoomNodeIDList.Add(parentID);
+        return true;
     }
 #endif
 

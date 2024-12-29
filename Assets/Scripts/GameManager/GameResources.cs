@@ -18,7 +18,7 @@ public class GameResources : MonoBehaviour
         }
     }
 
-    [SerializeField]private RoomNodeTypeListSO roomNodeTypeListSO;
+    [SerializeField] private RoomNodeTypeListSO roomNodeTypeListSO;
 
     public RoomNodeTypeListSO GetRoomNodeTypeListSO()
     {
