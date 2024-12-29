@@ -53,5 +53,16 @@ public class RoomNodeGraphSO : ScriptableObject
         return null;
     }
 
+
+    public bool RemoveRoomNode(string nodeID)
+    {
+        if (roomNodeDictionary.TryGetValue(nodeID,out RoomNodeSO roomNode))
+        {
+            roomNodeDictionary.Remove(nodeID);
+            roomNodeList.Remove(roomNode);
+
+        }
+        return false;
+    }
 #endif
 }
