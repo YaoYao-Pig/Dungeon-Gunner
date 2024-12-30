@@ -58,11 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeTypeListSO.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\Utilities\HelperUtilities.cs" />
+    <Compile Include="Assets\Scripts\Misk\Settings.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeGraphSO.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeSO.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeTypeSO.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameResources.cs" />
-    <Compile Include="Assets\Scripts\Misk\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
