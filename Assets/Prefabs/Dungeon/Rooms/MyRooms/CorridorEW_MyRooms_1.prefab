@@ -3310,7 +3310,7 @@ GameObject:
   - component: {fileID: 4638715041673378452}
   - component: {fileID: 4638715041673378453}
   m_Layer: 12
-  m_Name: CorridorES_MyRooms_1
+  m_Name: CorridorEW_MyRooms_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
