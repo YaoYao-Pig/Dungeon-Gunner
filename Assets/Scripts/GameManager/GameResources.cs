@@ -29,4 +29,6 @@ public class GameResources : MonoBehaviour
     {
         return roomNodeTypeListSO.list;
     }
+
+    public Material dimmedMaterial;
 }

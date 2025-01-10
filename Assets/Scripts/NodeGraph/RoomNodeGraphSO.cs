@@ -25,6 +25,40 @@ public class RoomNodeGraphSO : ScriptableObject
     }
 
     
+
+
+    public RoomNodeSO GetRoomNode(RoomNodeTypeSO nodeTypeSO)
+    {
+        foreach(RoomNodeSO node in roomNodeList)
+        {
+            if (node.roomType == nodeTypeSO)
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public RoomNodeSO GetRoomNode(string roomID)
+    {
+        if (roomNodeDictionary.TryGetValue(roomID, out RoomNodeSO result))
+        {
+            return result;
+        }
+        return null;
+    }
+
+
+    //定义函数迭代器（不是协程）
+    public IEnumerable<RoomNodeSO> GetChildRoomNodes(RoomNodeSO parentRoomNode)
+    {
+        foreach(string childeNodeID in parentRoomNode.childRoomNodeIDList)
+        {
+            yield return GetRoomNode(childeNodeID);
+        }
+    }
+
+
 #if UNITY_EDITOR
 
 
@@ -44,14 +78,7 @@ public class RoomNodeGraphSO : ScriptableObject
         linePosition = position;
     }
 
-    public RoomNodeSO GetRoomNode(string roomID)
-    {
-        if(roomNodeDictionary.TryGetValue(roomID,out RoomNodeSO result))
-        {
-            return result;
-        }
-        return null;
-    }
+
 
 
     public bool RemoveRoomNode(string nodeID)
