@@ -12,7 +12,7 @@ public class Room
     //绝对位置
     public Vector2Int lowerBounds;
     public Vector2Int upperBounds;
-    //相对位置
+    //相对位置  
     public Vector2Int templateLowerBounds;
     public Vector2Int templateUpperBounds;
     public Vector2Int[] spawnPositionArrary;
