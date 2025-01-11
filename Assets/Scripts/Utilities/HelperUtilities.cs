@@ -17,6 +17,15 @@ public static class HelperUtilities
         return false;
     }
 
+    public static bool ValidateCheckNullValue(Object thisObject,string fileName,Object objectToCheck)
+    {
+        if (objectToCheck == null)
+        {
+            Debug.Log(fileName + " is null and must contain a value in object " + thisObject.name.ToString());
+            return true;
+        }
+        return false;
+    }
     public static bool ValidateCheckEnumerableValues(Object thisObject,string fieldName, IEnumerable enumerableObjectToCheck)
     {
         bool error = false;
@@ -44,6 +53,30 @@ public static class HelperUtilities
         {
             Debug.Log(fieldName + " has no values in object " + thisObject.name.ToString());
             error = true;
+        }
+        return error;
+    }
+
+
+    public static bool ValidateCheckPositiveValue(Object thisObject,string fileName,int valueToCheck,bool isZeroAllowed)
+    {
+        bool error = false;
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0)
+            {
+                Debug.Log(fileName + " must contain a positive value or zero in object " + thisObject.name.ToString());
+                error = true;
+            }
+
+        }
+        else
+        {
+            if (valueToCheck <= 0)
+            {
+                Debug.Log(fileName + " must contain a positive value in object " + thisObject.name.ToString());
+                error = true;
+            }
         }
         return error;
     }
