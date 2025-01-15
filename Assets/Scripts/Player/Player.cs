@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 #region REQUIRE
+[RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SortingLayer))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
 [DisallowMultipleComponent]
 #endregion REQUIRE
 public class Player : MonoBehaviour

@@ -159,7 +159,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ab2a58be2f5c534f871412878ca403b, type: 2}
   - {fileID: 11400000, guid: a9d52df7cbe9b1a43a3c89c42886b77e, type: 2}
   - {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
-  currentDungeonLevelListIndex: 0
+  currentDungeonLevelListIndex: 1
 --- !u!4 &172769322
 Transform:
   m_ObjectHideFlags: 0
@@ -455,10 +455,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.027243586
-    width: 1
-    height: 0.9465143
+    x: 0.001556824
+    y: 0
+    width: 0.99636734
+    height: 0.9999999
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
