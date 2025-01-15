@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,42 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private List<DungeonLevelSO> dungeonLevelList;
 
     [SerializeField] private int currentDungeonLevelListIndex = 0;
+    private Room currentRoom;
+    private Room previousRoom;
+    private PlayerDetailsSO playerDetails;
+    private Player player;
 
     private GameState _gameState;
+
+
+
+    
+
     public GameState gameState
     {
         get { return _gameState; }
         set { _gameState = value; }
+    
     }
 
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        playerDetails = GameResources.Instance.CurrentPlayerSO.playerDetails;
+
+        InitiatePlayer();
+    }
+
+    private void InitiatePlayer()
+    {
+        GameObject playerGameObject = Instantiate(playerDetails.playerPrefab);
+        player = playerGameObject.GetComponent<Player>();
+
+        player.Initialise(playerDetails);
+    }
 
     private void Start()
     {
@@ -43,7 +71,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         switch (gameState)
         {
             case GameState.gameStarted:
-                PlayeDungeonLevel(currentDungeonLevelListIndex);
+                PlayDungeonLevel(currentDungeonLevelListIndex);
                 gameState = GameState.playingLevel;
                 break;
 
@@ -51,7 +79,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
-    private void PlayeDungeonLevel(int dungeonLevelListIndex)
+    private void PlayDungeonLevel(int dungeonLevelListIndex)
     {
         bool dungeonBuiltSuccessfully = DungeonBuilder.Instance.GenerateDungeon(dungeonLevelList[dungeonLevelListIndex]);
 
@@ -59,15 +87,36 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             Debug.LogError("Can't Build the dungeon");
         }
+
+
+
+        player.gameObject.transform.position = HelperUtilities.GetSwapnPositionNearestToPlayer(
+            new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f, (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f));
+
+    }
+
+    public Room GetCurrentRoom()
+    {
+        return currentRoom;
+    }
+    public void SetCurrentRoom(Room room)
+    {
+        currentRoom= room;
     }
 
 
+    public Player GetPlayer()
+    {
+        return player;
+    }
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
     {
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(dungeonLevelList), dungeonLevelList);
     }
+
+
 #endif
     #endregion Validation
 }

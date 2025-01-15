@@ -80,4 +80,24 @@ public static class HelperUtilities
         }
         return error;
     }
+
+    public static Vector3 GetSwapnPositionNearestToPlayer(Vector3 playerPosition)
+    {
+        Room currentRoom = GameManager.Instance.GetCurrentRoom();
+
+        Grid grid = currentRoom.instantiatedRoom.grid;
+
+        
+        Vector3 nearestSwapnPosition = grid.CellToWorld((Vector3Int)currentRoom.spawnPositionArrary[0]);
+
+        foreach(Vector2Int posGrid in currentRoom.spawnPositionArrary)
+        {
+            Vector3 spwanPositionToWorld = grid.CellToWorld((Vector3Int)posGrid);
+            if (Vector3.Distance(playerPosition, nearestSwapnPosition) > Vector2.Distance(playerPosition, spwanPositionToWorld))
+            {
+                nearestSwapnPosition = spwanPositionToWorld;
+            }
+        }
+        return nearestSwapnPosition;
+    }
 }

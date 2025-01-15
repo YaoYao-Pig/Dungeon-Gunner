@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\GameManager\GameResources.cs" />
     <Compile Include="Assets\Scripts\Dungeon\RoomTemplateSO.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Misc\CinemachineTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -417,6 +417,7 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
 
     private Room CreateRoomFromTemplate(RoomTemplateSO roomTemplate, RoomNodeSO roomNode)
     {
+
         Room room = new Room();
         room.templateID = roomTemplate.guid;
         room.id = roomNode.id;
@@ -438,6 +439,7 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
         {
             room.parentRoomID = "";
             room.isPreviouslyVisited = true;
+            GameManager.Instance.SetCurrentRoom(room);
         }
         else
         {
