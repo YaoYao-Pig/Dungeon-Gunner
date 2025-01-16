@@ -4,6 +4,65 @@ using UnityEngine;
 
 public static class HelperUtilities 
 {
+    public static Camera mainCamera;
+    public static Vector3 GetMouseWorldPosition()
+    {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        mouseScreenPosition.x = Mathf.Clamp(mouseScreenPosition.x, 0, Screen.width);
+        mouseScreenPosition.y = Mathf.Clamp(mouseScreenPosition.y, 0, Screen.height);
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+        mousePosition.z = 0f;
+
+        return mousePosition;
+
+    }
+
+    public static float GetAngleFromVector(Vector3 vector)
+    {
+        float radius = Mathf.Atan2(vector.y, vector.x);
+
+        float degrees = radius * Mathf.Rad2Deg;
+        return degrees;
+    }
+
+    public static AimDirection GetAimDirection(float angleDegrees)
+    {
+        AimDirection aimDirection;
+
+        if (angleDegrees >= 22f && angleDegrees <= 67f)
+        {
+            aimDirection = AimDirection.UpRight;
+        }
+        else if (angleDegrees > 67f && angleDegrees <= 112f)
+        {
+            aimDirection = AimDirection.Up;
+        }
+        else if (angleDegrees > 112f && angleDegrees <= 158f)
+        {
+            aimDirection = AimDirection.UpLeft;
+        }
+        else if ((angleDegrees > 158f && angleDegrees <= 180f)||(angleDegrees>-180f&&angleDegrees<=-135f))
+        {
+            aimDirection = AimDirection.Left;
+        }
+        else if (angleDegrees > -135f && angleDegrees <= -45f)
+        {
+            aimDirection = AimDirection.Down;
+        }
+        else if ((angleDegrees > -45f && angleDegrees <= 0f)||(angleDegrees>0f&&angleDegrees<22f))
+        {
+            aimDirection = AimDirection.Right;
+        }
+        else
+        {
+            aimDirection = AimDirection.Right;
+        }
+        return aimDirection;
+    }
     /// <summary>
     /// Empty string debug check
     /// </summary>

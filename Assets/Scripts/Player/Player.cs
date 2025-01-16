@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 #region REQUIRE
 [RequireComponent(typeof(SortingGroup))]
+[RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(SortingLayer))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -12,6 +13,9 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Idle))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(AnimatePlayer))]
 [DisallowMultipleComponent]
 #endregion REQUIRE
 public class Player : MonoBehaviour
@@ -21,11 +25,16 @@ public class Player : MonoBehaviour
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
 
+    [HideInInspector] public IdleEvent idleEvent;
+    [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     private void Awake()
     {
         health = GetComponent<Health>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        idleEvent = GetComponent<IdleEvent>();
+        aimWeaponEvent = GetComponent<AimWeaponEvent>();
 
     }
 
