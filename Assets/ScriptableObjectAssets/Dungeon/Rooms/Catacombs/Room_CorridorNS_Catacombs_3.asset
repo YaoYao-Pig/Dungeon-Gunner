@@ -21,7 +21,7 @@ MonoBehaviour:
   doorwayList:
   - position: {x: 2, y: 27}
     orientation: 0
-    doorPrefab: {fileID: 0}
+    doorPrefab: {fileID: 6752290742645188279, guid: f1c716f317e168c4fa2a64791cc7e3ce, type: 3}
     doorwayStartCopyPosition: {x: 0, y: 0}
     doorwayCopyTileWidth: 0
     doorwayCopyTileHeight: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     isUnavailable: 0
   - position: {x: 2, y: 0}
     orientation: 2
-    doorPrefab: {fileID: 0}
+    doorPrefab: {fileID: 6752290742645188279, guid: f1c716f317e168c4fa2a64791cc7e3ce, type: 3}
     doorwayStartCopyPosition: {x: 0, y: 0}
     doorwayCopyTileWidth: 0
     doorwayCopyTileHeight: 0

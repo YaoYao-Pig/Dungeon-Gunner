@@ -30,6 +30,9 @@ public class InstantiatedRoom : MonoBehaviour
     {
         PopulateTilemapMemberVariables(roomGameObjectPrefab);
         BlockOffUnuseDoorWays();
+
+        AddDoorsToRooms();
+
         DisableCollisionTilemapRenderer();
     }
 
@@ -151,5 +154,39 @@ public class InstantiatedRoom : MonoBehaviour
         collisionTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
     }
 
+    private void AddDoorsToRooms()
+    {
+        if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNS) return;
+        foreach(Doorway doorway in room.doorWayList)
+        {
+            if (doorway.doorPrefab!=null&&doorway.isConnected)
+            {
+                float tileDistance = Settings.tileSizePixels / Settings.pixelsPerUnit;
+                GameObject door = null;
+
+                if (doorway.orientation == Orientation.north)
+                {
+                    door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                    door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y + tileDistance, 0f);
+                }
+                else if (doorway.orientation == Orientation.south)
+                {
+                    door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                    door.transform.localPosition = new Vector3(doorway.position.x + tileDistance / 2f, doorway.position.y, 0f);
+                }
+                else if (doorway.orientation == Orientation.east)
+                {
+                    door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                    door.transform.localPosition = new Vector3(doorway.position.x + tileDistance, doorway.position.y + tileDistance*1.25f, 0f);
+                }
+                else if (doorway.orientation == Orientation.north)
+                {
+                    door = Instantiate(doorway.doorPrefab, gameObject.transform);
+                    door.transform.localPosition = new Vector3(doorway.position.x, doorway.position.y + tileDistance, 0f);
+                }
+
+            }
+        }
+    }
 
 }

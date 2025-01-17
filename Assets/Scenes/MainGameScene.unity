@@ -153,13 +153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonLevelList:
+  - {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
   - {fileID: 11400000, guid: 8ab89b0b7c6707d43bcca47a60a39297, type: 2}
   - {fileID: 11400000, guid: bf5f980240ac2ff4593ff65ea6f07ab9, type: 2}
   - {fileID: 11400000, guid: 9012222c4544bee43904527de2efd679, type: 2}
   - {fileID: 11400000, guid: 5ab2a58be2f5c534f871412878ca403b, type: 2}
   - {fileID: 11400000, guid: a9d52df7cbe9b1a43a3c89c42886b77e, type: 2}
-  - {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
-  currentDungeonLevelListIndex: 1
+  currentDungeonLevelListIndex: 0
 --- !u!4 &172769322
 Transform:
   m_ObjectHideFlags: 0
