@@ -7,6 +7,7 @@ using UnityEngine;
 public class CinemachineTarget : MonoBehaviour
 {
     private CinemachineTargetGroup cinemachineTargetGroup;
+    [SerializeField] private Transform cursorTarget;
 
     private void Awake()
     {
@@ -21,8 +22,17 @@ public class CinemachineTarget : MonoBehaviour
 
     private void SetCinemachineTargetGroup()
     {
-        CinemachineTargetGroup.Target cinemachineTarget= new CinemachineTargetGroup.Target { weight = 1f, radius = 1f, target = GameManager.Instance.GetPlayer().transform };
-        CinemachineTargetGroup.Target[] cinemachineTargetArray = new CinemachineTargetGroup.Target[] { cinemachineTarget };
+        CinemachineTargetGroup.Target cinemachineTarget_player= new CinemachineTargetGroup.Target { weight = 1f, radius = 2.5f, target = GameManager.Instance.GetPlayer().transform };
+        CinemachineTargetGroup.Target cinemachineTarget_cursor = new CinemachineTargetGroup.Target { weight = 1f, radius = 1f, target = cursorTarget };
+        
+        CinemachineTargetGroup.Target[] cinemachineTargetArray = new CinemachineTargetGroup.Target[] { cinemachineTarget_player , cinemachineTarget_cursor};
         cinemachineTargetGroup.m_Targets = cinemachineTargetArray;
+    }
+
+    private void Update()
+    {
+        cursorTarget.position = HelperUtilities.GetMouseWorldPosition();
+
+
     }
 }

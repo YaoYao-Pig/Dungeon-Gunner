@@ -140,6 +140,48 @@ public static class HelperUtilities
         return error;
     }
 
+    public static bool ValidateCheckPositiveValue(Object thisObject, string fileName, float valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0f)
+            {
+                Debug.Log(fileName + " must contain a positive value or zero in object " + thisObject.name.ToString());
+                error = true;
+            }
+
+        }
+        else
+        {
+            if (valueToCheck <= 0f)
+            {
+                Debug.Log(fileName + " must contain a positive value in object " + thisObject.name.ToString());
+                error = true;
+            }
+        }
+        return error;
+    }
+
+
+
+    public static bool ValidateCheckPositiveValueRange(Object thisObject, string fieldNameMiniimum, float valueToCheckMinimum, string fieldNameMaximum,
+        float valueToCheckMaximum,bool isZeroAllowed)
+    {
+        bool error = false;
+
+            if (valueToCheckMinimum > valueToCheckMaximum)
+            {
+                Debug.Log(fieldNameMiniimum + " must be less than or equal to " + fieldNameMaximum+" in object " + thisObject.name.ToString());
+                error = true;
+            }
+
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMiniimum, valueToCheckMinimum, isZeroAllowed)) error = true;
+        if (ValidateCheckPositiveValue(thisObject, fieldNameMaximum, valueToCheckMaximum, isZeroAllowed)) error = true;
+
+        return error;
+    }
+
     public static Vector3 GetSwapnPositionNearestToPlayer(Vector3 playerPosition)
     {
         Room currentRoom = GameManager.Instance.GetCurrentRoom();
@@ -159,4 +201,6 @@ public static class HelperUtilities
         }
         return nearestSwapnPosition;
     }
+
+    
 }

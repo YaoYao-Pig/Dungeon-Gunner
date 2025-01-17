@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1942946894586193663, guid: 3ab120ed88dd6ec43a2e1ffd761019ae, type: 3}
       propertyPath: m_Mass
-      value: 0.6
+      value: 0.7554301
       objectReference: {fileID: 0}
     - target: {fileID: 1942946895983237835, guid: 3ab120ed88dd6ec43a2e1ffd761019ae, type: 3}
       propertyPath: m_Size.x
@@ -151,5 +151,9 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4590183815221848009, guid: 3ab120ed88dd6ec43a2e1ffd761019ae, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: bd6ac3dbbb8315845875bf5011a7f256, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab120ed88dd6ec43a2e1ffd761019ae, type: 3}

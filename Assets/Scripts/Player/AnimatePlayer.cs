@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//这个只针对玩家，因此依赖玩家
+//而其他的比如Idle是针对玩家还有敌人的，所以单独
 [RequireComponent(typeof(Player))]
 [DisallowMultipleComponent]
 public class AnimatePlayer : MonoBehaviour
@@ -17,16 +19,23 @@ public class AnimatePlayer : MonoBehaviour
     {
         player.idleEvent.OnIdle += IdleEvent_OnIdle;
         player.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
+        player.movementByVelocityEvent.OnMovementByVelocity += MovementByVelocityEvent_OnMovementByVelocity;
+        player.movementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
     }
+
+
 
     private void OnDisable()
     {
         player.idleEvent.OnIdle -= IdleEvent_OnIdle;
         player.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
+        player.movementByVelocityEvent.OnMovementByVelocity -= MovementByVelocityEvent_OnMovementByVelocity;
+        player.movementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
     }
 
     private void IdleEvent_OnIdle(IdleEvent idleEvent)
     {
+        InitializedRollAnimationParameters();
         SetIdleAnimationParameters();
     }
 
@@ -38,9 +47,28 @@ public class AnimatePlayer : MonoBehaviour
 
     private void AimWeaponEvent_OnWeaponAim(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs aimWeaponEventArgs)
     {
+
         InitializedAimAnimationParameters();
+        InitializedRollAnimationParameters();
         SetAimWeaponAnimationParameters(aimWeaponEventArgs.aimDirection);
     }
+
+    private void MovementByVelocityEvent_OnMovementByVelocity(MovementByVelocityEvent movementByVelocityEvent, MovementByVelocityArgs movementByVelocityArgs)
+    {
+        InitializedRollAnimationParameters();
+        SetMovementAnimationParameters();
+    }
+
+
+    private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, MovementToPositionArgs movementToPositionArgs)
+    {
+        InitializedAimAnimationParameters();
+        InitializedRollAnimationParameters();
+        SetMovementToPositionAnimationParameters(movementToPositionArgs);
+    }
+
+
+
 
 
     private void InitializedAimAnimationParameters()
@@ -52,7 +80,35 @@ public class AnimatePlayer : MonoBehaviour
         player.animator.SetBool(Settings.aimRight, false);
         player.animator.SetBool(Settings.aimLeft, false);
     }
-
+    private void InitializedRollAnimationParameters()
+    {
+        player.animator.SetBool(Settings.rollDown, false);
+        player.animator.SetBool(Settings.rollRight, false);
+        player.animator.SetBool(Settings.rollLeft, false);
+        player.animator.SetBool(Settings.rollUp, false);
+    }
+    private void SetMovementToPositionAnimationParameters(MovementToPositionArgs movementToPositionArgs)
+    {
+        if (movementToPositionArgs.isRolling)
+        {
+            if (movementToPositionArgs.moveDirection.x > 0f)
+            {
+                player.animator.SetBool(Settings.rollRight, true);
+            }
+            else if (movementToPositionArgs.moveDirection.x < 0f)
+            {
+                player.animator.SetBool(Settings.rollLeft, true);
+            }
+            else if (movementToPositionArgs.moveDirection.y > 0f)
+            {
+                player.animator.SetBool(Settings.rollUp, true);
+            }
+            else if (movementToPositionArgs.moveDirection.y < 0f)
+            {
+                player.animator.SetBool(Settings.rollDown, true);
+            }
+        }
+    }
 
     private void SetAimWeaponAnimationParameters(AimDirection aimDirection)
     {
@@ -77,5 +133,11 @@ public class AnimatePlayer : MonoBehaviour
                 player.animator.SetBool(Settings.aimDown, true);
                 break;
         }
+    }
+
+    private void SetMovementAnimationParameters()
+    {
+        player.animator.SetBool(Settings.isIdle, false);
+        player.animator.SetBool(Settings.isMoving, true);
     }
 }

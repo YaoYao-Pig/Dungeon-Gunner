@@ -5,17 +5,20 @@ using UnityEngine.Rendering;
 
 #region REQUIRE
 [RequireComponent(typeof(SortingGroup))]
-[RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(SortingLayer))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AnimatePlayer))]
 [RequireComponent(typeof(Health))]
+
+[RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(Idle))]
 [RequireComponent(typeof(AimWeapon))]
-[RequireComponent(typeof(AnimatePlayer))]
+[RequireComponent(typeof(MovementByVelocity))]
+[RequireComponent(typeof(MovementToPosition))]
 [DisallowMultipleComponent]
 #endregion REQUIRE
 public class Player : MonoBehaviour
@@ -27,6 +30,8 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public IdleEvent idleEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
+    [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
+    [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     private void Awake()
     {
         health = GetComponent<Health>();
@@ -35,6 +40,8 @@ public class Player : MonoBehaviour
 
         idleEvent = GetComponent<IdleEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
+        movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
+        movementToPositionEvent = GetComponent<MovementToPositionEvent>();
 
     }
 
