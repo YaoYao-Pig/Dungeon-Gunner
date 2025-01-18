@@ -19,6 +19,16 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
 
         LoadRoomNodeTypeList();
 
+
+    }
+
+    private void OnEnable()
+    {
+        GameResources.Instance.dimmedMaterial.SetFloat("Alpha_Slider", 0f);
+    }
+
+    private void OnDisable()
+    {
         GameResources.Instance.dimmedMaterial.SetFloat("Alpha_Slider", 1f);
     }
 
@@ -422,7 +432,7 @@ public class DungeonBuilder : SingletonMonobehaviour<DungeonBuilder>
         room.templateID = roomTemplate.guid;
         room.id = roomNode.id;
         room.prefab = roomTemplate.prefab;
-        room.roomNodeType = roomNode.roomType;
+        room.roomNodeType = roomTemplate.roomNodeType;
         room.spawnPositionArrary = roomTemplate.spawnPositionArray;
         room.lowerBounds = roomTemplate.lowerBounds;
         room.upperBounds = roomTemplate.upperBounds;

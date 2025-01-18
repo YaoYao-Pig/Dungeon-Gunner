@@ -88,7 +88,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             Debug.LogError("Can't Build the dungeon");
         }
 
-
+        StaticEventHandler.CallRoomChangedEvent(currentRoom);
 
         player.gameObject.transform.position = HelperUtilities.GetSwapnPositionNearestToPlayer(
             new Vector3((currentRoom.lowerBounds.x + currentRoom.upperBounds.x) / 2f, (currentRoom.lowerBounds.y + currentRoom.upperBounds.y) / 2f, 0f));

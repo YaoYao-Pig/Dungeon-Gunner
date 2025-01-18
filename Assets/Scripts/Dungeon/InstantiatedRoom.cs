@@ -23,6 +23,7 @@ public class InstantiatedRoom : MonoBehaviour
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
         roomColliderBounds = boxCollider2D.bounds;
+        
 
     }
 
@@ -156,7 +157,8 @@ public class InstantiatedRoom : MonoBehaviour
 
     private void AddDoorsToRooms()
     {
-        if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNS) return;
+        if (room.roomNodeType.isCorridorEW==true || room.roomNodeType.isCorridorNS==true) return;
+
         foreach(Doorway doorway in room.doorWayList)
         {
             if (doorway.doorPrefab!=null&&doorway.isConnected)
@@ -179,14 +181,30 @@ public class InstantiatedRoom : MonoBehaviour
                     door = Instantiate(doorway.doorPrefab, gameObject.transform);
                     door.transform.localPosition = new Vector3(doorway.position.x + tileDistance, doorway.position.y + tileDistance*1.25f, 0f);
                 }
-                else if (doorway.orientation == Orientation.north)
+                else if (doorway.orientation == Orientation.west)
                 {
                     door = Instantiate(doorway.doorPrefab, gameObject.transform);
                     door.transform.localPosition = new Vector3(doorway.position.x, doorway.position.y + tileDistance, 0f);
                 }
 
+                Door doorComponent = door.GetComponent<Door>();
+                if (room.roomNodeType.isBossRoom)
+                {
+                    doorComponent.isBossRoomDoor = true;
+                    doorComponent.LockDoor();
+                }
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == Settings.playerTag&&room != GameManager.Instance.GetCurrentRoom())
+        {
+            this.room.isPreviouslyVisited = true;
+            StaticEventHandler.CallRoomChangedEvent(room);
+        }
+        
     }
 
 }

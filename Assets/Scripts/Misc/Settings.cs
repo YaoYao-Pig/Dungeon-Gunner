@@ -15,9 +15,10 @@ public static class Settings
     public const int maxDungeonBuildAttempts = 10;
     #endregion DUNGEON BULD SETTINGS
 
-    #region room_Settings
+    #region ROOM_Settings
+    public const float fadeInTime = 0.5f;
     public const int maxChildCorridors = 3;
-    #endregion room_Settings
+    #endregion ROOM_Settings
 
     #region ANIMATOR PARAMETERS
     public static int aimUp = Animator.StringToHash("aimUp");
@@ -33,5 +34,13 @@ public static class Settings
     public static int rollRight = Animator.StringToHash("rollRight");
     public static int rollLeft = Animator.StringToHash("rollLeft");
     public static int rollDown = Animator.StringToHash("rollDown");
+
+    public static int open = Animator.StringToHash("open");
     #endregion ANIMATOR PARAMETERS
+
+
+    #region GAMEOBJECT TAGS
+    public const string playerTag = "Player";
+    public const string playerWeapon = "playerWeapon";
+    #endregion
 }

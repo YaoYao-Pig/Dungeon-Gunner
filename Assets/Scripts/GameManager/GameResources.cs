@@ -32,4 +32,7 @@ public class GameResources : MonoBehaviour
     }
 
     public Material dimmedMaterial;
+    public Material litMaterial;
+
+    public Shader variableLitShader;
 }
