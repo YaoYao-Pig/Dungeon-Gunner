@@ -679,10 +679,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.01939058
-    y: 0
-    width: 0.9615265
-    height: 1
+    x: 0
+    y: 0.009673518
+    width: 1
+    height: 0.9794437
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1134,7 +1134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a5d9c7eb0034492472f93a928195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArray: []
+  poolArray:
+  - poolSize: 30
+    prefab: {fileID: 2395404362818066501, guid: 0337c1278211b204cbdcca2fedd05a86, type: 3}
+    componentType: IFireable
 --- !u!4 &2115844585
 Transform:
   m_ObjectHideFlags: 0

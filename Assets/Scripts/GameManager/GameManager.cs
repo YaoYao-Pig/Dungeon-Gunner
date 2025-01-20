@@ -51,6 +51,22 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         player.Initialise(playerDetails);
     }
 
+    private void OnEnable()
+    {
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+
+    private void OnDisable()
+    {
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+    }
+
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        SetCurrentRoom(roomChangedEventArgs.room);
+    }
+
     private void Start()
     {
         gameState = GameState.gameStarted;
@@ -71,7 +87,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         switch (gameState)
         {
             case GameState.gameStarted:
-                PlayDungeonLevel(currentDungeonLevelListIndex);
+                PlayDungeonLevel(currentDungeonLevelListIndex); 
                 gameState = GameState.playingLevel;
                 break;
 

@@ -59,7 +59,7 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
         int poolKey = prefab.GetInstanceID();
         if (poolDictionary.ContainsKey(poolKey))
         {
-            Component componentToReuse = GetComponentFromPoo(poolKey);
+            Component componentToReuse = GetComponentFromPool(poolKey);
 
             ResetObject(position, rotation, componentToReuse, prefab);
 
@@ -74,7 +74,7 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
 
 
 
-    private Component GetComponentFromPoo(int poolKey)
+    private Component GetComponentFromPool(int poolKey)
     {
         Component componentToReuse = poolDictionary[poolKey].Dequeue();
         poolDictionary[poolKey].Enqueue(componentToReuse);
@@ -90,5 +90,6 @@ public class PoolManager : SingletonMonobehaviour<PoolManager>
         componentToReuse.transform.position = position;
         componentToReuse.transform.rotation = rotation;
         componentToReuse.gameObject.transform.localScale = prefab.transform.localScale;
+
     }
 }
