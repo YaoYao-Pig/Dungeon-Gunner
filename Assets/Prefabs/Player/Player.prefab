@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpriteRenderer: {fileID: 1942946896182438879}
-  weaponPolygonCollider2D: {fileID: 1942946894586193648}
+  weaponPolygonCollider2D: {fileID: 1942946896182438864}
   weaponShootPositionTransform: {fileID: 1942946896502280002}
   weaponEffectPositionTransform: {fileID: 1942946896468898593}
 --- !u!114 &2507917100744654200
