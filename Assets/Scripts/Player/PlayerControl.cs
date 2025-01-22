@@ -182,12 +182,15 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            player.fireWeaponEvent.CallFireaWeaponEvent(true, leftMouseDownPreviousFrame,playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+            player.fireWeaponEvent.CallFireaWeaponEvent(true, leftMouseDownPreviousFrame, playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
             leftMouseDownPreviousFrame = true;
+            player.updateContinueShootEvent.CallUpdateContinueShootEvent(true);
         }
         else
         {
             leftMouseDownPreviousFrame = false;
+            if(player.activeWeapon.GetCurrentWeapon().weaponDetails.canContinueFire==false)
+                player.updateContinueShootEvent.CallUpdateContinueShootEvent(false);
         }
     }
 

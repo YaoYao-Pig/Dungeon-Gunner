@@ -25,6 +25,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(WeaponFiredEvent))]
 [RequireComponent(typeof(ReloadWeapon))]
 [RequireComponent(typeof(WeaponReloaded))]
+[RequireComponent(typeof(UpdateContinueShootEvent))]
 [DisallowMultipleComponent]
 #endregion REQUIRE
 public class Player : MonoBehaviour
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public WeaponFiredEvent weaponFiredEvent;
     [HideInInspector] public ReloadWeaponEvent reloadWeaponEvent;
     [HideInInspector] public WeaponReloadedEvent weaponReloadedEvent;
+    [HideInInspector] public UpdateContinueShootEvent updateContinueShootEvent;
     public List<Weapon> weaponList = new List<Weapon>();
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
         weaponFiredEvent = GetComponent<WeaponFiredEvent>();
         reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
         weaponReloadedEvent = GetComponent<WeaponReloadedEvent>();
+        updateContinueShootEvent = GetComponent<UpdateContinueShootEvent>();
     }
 
     public void Initialise(PlayerDetailsSO playerDetails)

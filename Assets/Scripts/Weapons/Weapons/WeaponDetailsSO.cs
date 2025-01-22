@@ -14,6 +14,7 @@ public class WeaponDetailsSO : ScriptableObject
 
     public bool hasInfiniteAmmo = false;    //是否无限子弹
     public bool hasInfiniteClipCapacity = false;    //是否子弹容量无限
+    public bool canContinueFire = true; //是否能连续射击
     public int weaponClipAmmoCapacity = 6;  //每个弹夹容量
     public int weaponAmmoCapacity = 100;    //子弹容量
 

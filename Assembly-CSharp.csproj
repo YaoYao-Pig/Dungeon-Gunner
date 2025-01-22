@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\AimWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\UI\WeaponStatusUI.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Weapons\UpdateContinueShootEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
