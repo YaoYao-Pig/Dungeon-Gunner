@@ -35,4 +35,5 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
 
     public Shader variableLitShader;
+    public GameObject ammoIconPrefab;
 }

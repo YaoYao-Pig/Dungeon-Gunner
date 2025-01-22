@@ -31,6 +31,10 @@ GameObject:
   - component: {fileID: 2507917100744654200}
   - component: {fileID: 8379969038076116642}
   - component: {fileID: 4888899201638346903}
+  - component: {fileID: 7774981162911846544}
+  - component: {fileID: 4304927736436328625}
+  - component: {fileID: 8010033908846528966}
+  - component: {fileID: 2396812972037493686}
   - component: {fileID: 1942946894586193661}
   m_Layer: 10
   m_Name: Player
@@ -421,6 +425,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf92b72ad90b12438da1e53d6f89d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7774981162911846544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942946894586193659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c0f8812d7221443ba8bc7edc8d4900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4304927736436328625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942946894586193659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b59c931d8a06f84893fb190e0ffa017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8010033908846528966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942946894586193659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c53838a42f43f744a00baf788554a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2396812972037493686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942946894586193659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba72c1fdc4a8e5498404821f8c759b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1942946894586193661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +497,8 @@ MonoBehaviour:
   setActiveWeaponEvent: {fileID: 0}
   fireWeaponEvent: {fileID: 0}
   weaponFiredEvent: {fileID: 0}
+  reloadWeaponEvent: {fileID: 0}
+  weaponReloadedEvent: {fileID: 0}
 --- !u!1 &1942946894988885991
 GameObject:
   m_ObjectHideFlags: 0
