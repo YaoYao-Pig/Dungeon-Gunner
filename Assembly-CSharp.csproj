@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Dungeon\InstantiatedRoom.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\SetActiveWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Room.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Weapons\UpdateContinueShootEvent.cs" />
     <Compile Include="Assets\Scripts\Utilities\HelperUtilities.cs" />
     <Compile Include="Assets\Scripts\Misc\Settings.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeGraphSO.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\FireWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Weapons\Ammo\IFireable.cs" />
+    <Compile Include="Assets\Scripts\UI\WeaponStatusUI.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameResources.cs" />
     <Compile Include="Assets\Scripts\Weapons\Ammo\Ammo.cs" />
     <Compile Include="Assets\Scripts\Weapons\Ammo\AmmoDetailsSO.cs" />
@@ -108,8 +110,11 @@
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\AimWeaponEvent.cs" />
-    <Compile Include="Assets\Scripts\UI\WeaponStatusUI.cs" />
-    <Compile Include="Assets\Scripts\Weapons\Weapons\UpdateContinueShootEvent.cs" />
+    <Compile Include="Assets\Scripts\Sounds\SoundEffectSO.cs" />
+    <Compile Include="Assets\Scripts\Sounds\SoundEffect.cs" />
+    <Compile Include="Assets\Scripts\Sounds\SoundEffectManager.cs" />
+    <Compile Include="Assets\Scripts\MiniMap\MiniMap.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Weapons\WeaponShootEffectSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

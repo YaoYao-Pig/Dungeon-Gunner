@@ -208,4 +208,11 @@ public static class HelperUtilities
     {
         return new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0f);
     } 
+
+    public static float LinearToDecibels(int linear)
+    {
+        float linearScaleRange = 20f;
+        return Mathf.Log10((float)linear / linearScaleRange) * 20f;
+    }
+
 }

@@ -156,7 +156,12 @@ public class FireWeapon : MonoBehaviour
             activeWeapon.GetCurrentWeapon().weaponRemainAmmo--;
         }
         weaponFiredEvent.CallWeaponFiredEvenet(activeWeapon.GetCurrentWeapon());
+
+        WeaponSoundEffect();
     }
+
+
+
     private void ResetCoolDownTimer()
     {
         fireRateCoolDownTimer = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate;
@@ -165,5 +170,13 @@ public class FireWeapon : MonoBehaviour
     private void UpdateContinueShootEvent_OnUpdateContinueShootEvent(bool target)
     {
         hasFiredLasTime = target;
+    }
+
+    private void WeaponSoundEffect()
+    {
+        if (activeWeapon.GetCurrentWeapon().weaponDetails.weaponFiringSoundEffect != null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(activeWeapon.GetCurrentWeapon().weaponDetails.weaponFiringSoundEffect);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
 {
@@ -36,4 +37,10 @@ public class GameResources : MonoBehaviour
 
     public Shader variableLitShader;
     public GameObject ammoIconPrefab;
+
+    [Header("Audio Sounds")]
+    public AudioMixerGroup soundsMasterMixerGroup;
+
+    public SoundEffectSO doorOpenCloseSoundEffect;
+
 }
