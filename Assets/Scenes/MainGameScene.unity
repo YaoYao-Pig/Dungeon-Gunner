@@ -1137,10 +1137,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.009009009
-    width: 1
-    height: 0.9797298
+    x: 0.07460545
+    y: 0
+    width: 0.8493544
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2911,6 +2911,18 @@ MonoBehaviour:
   - poolSize: 40
     prefab: {fileID: 3173700862829503495, guid: fad189b9bc1aa1447ac10b59ae696d54, type: 3}
     componentType: SoundEffect
+  - poolSize: 20
+    prefab: {fileID: 8752985775535463506, guid: 1edec234175627644b8f5040f156a2fd, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 2633516574337918981, guid: 4da342bedc88b3a4480e44fde5212dc5, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 5
+    prefab: {fileID: 5459380320102037413, guid: 11d77ff5ed9943c4d80a13f517399c0e, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 2633516574337918981, guid: e49fb5f58d3647c43a0cd8d133beaf10, type: 3}
+    componentType: AmmoHitEffect
 --- !u!4 &2115844585
 Transform:
   m_ObjectHideFlags: 0

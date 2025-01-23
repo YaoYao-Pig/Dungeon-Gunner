@@ -25,6 +25,7 @@ MonoBehaviour:
   ammoSpeedMax: 55
   ammoRange: 14
   ammoRotationSpeed: 1
+  ammoHitEffect: {fileID: 11400000, guid: 01321ecf68255d348991d64892753b3d, type: 2}
   ammoSpreadMin: 0.5
   ammoSpreadMax: 1
   ammoSpawnAmountMin: 1

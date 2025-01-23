@@ -25,6 +25,8 @@ public class AmmoDetailsSO : ScriptableObject
     public float ammoRange = 20f;
     public float ammoRotationSpeed = 1f;
 
+    public AmmoHitEffectSO ammoHitEffect;
+
     [Header("AMMO SPREAD DETAILS")]
     //×Óµ¯À©É¢
     public float ammoSpreadMin = 0f;
