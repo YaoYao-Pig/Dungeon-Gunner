@@ -54,6 +54,11 @@ public static class Settings
 
     #region UI PARAMETERS
     public const float uiAmmoIconSpacing = 4f;
-    
+
+    #endregion
+
+    #region PathFinding
+    public const int defaultAStarMovementPenalty = 40;
+    public const int preferredAStarMovementPenalty = 20;
     #endregion
 }
