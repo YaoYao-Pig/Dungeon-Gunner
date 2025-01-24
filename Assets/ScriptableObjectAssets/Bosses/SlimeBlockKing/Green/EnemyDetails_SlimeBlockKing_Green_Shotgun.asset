@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e4f13762b12f2498cb8bee2cd0e2c8, type: 3}
+  m_Name: EnemyDetails_SlimeBlockKing_Green_Shotgun
+  m_EditorClassIdentifier: 
+  enemyName: SlimeBlockKing_Green
+  enemyPrefab: {fileID: 3965829909266825465, guid: 4fd13be94bb25174090d3abc025f6ad9, type: 3}
