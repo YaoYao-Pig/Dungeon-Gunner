@@ -12,7 +12,7 @@ public class MovementToPositionEvent : MonoBehaviour
         Vector3 currentPosition,
         float moveSpeed,
         Vector2 moveDirection,
-        bool isRolling)
+        bool isRolling=false)
     {
         OnMovementToPosition?.Invoke(this, new MovementToPositionArgs() { 
             movePosition=movePosition, 

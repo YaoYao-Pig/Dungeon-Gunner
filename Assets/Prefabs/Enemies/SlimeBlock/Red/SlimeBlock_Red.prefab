@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a0ee566a387dcf744a5564ef5baa059e, type: 2}
+    - target: {fileID: 547433531192878260, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 401556ea4f311eb41bc15f4ff7900c9d, type: 2}
     - target: {fileID: 4258971734690835945, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
       propertyPath: m_Color.b
       value: 0.082352914
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5912415921133491605, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
+      propertyPath: movementDetailsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ec47eae920575543b8c89aca29080b8, type: 2}
     - target: {fileID: 8005566014621459507, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
       propertyPath: m_Name
       value: SlimeBlock_Red

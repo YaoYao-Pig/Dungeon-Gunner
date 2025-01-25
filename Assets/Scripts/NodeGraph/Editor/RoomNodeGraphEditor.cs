@@ -60,7 +60,6 @@ public class RoomNodeGraphEditor : EditorWindow
     [OnOpenAsset(0)]
     public static bool OnDoubleClickAsset(int instanceID, int line)
     {
-        Debug.Log("OnOpenAsset");
         RoomNodeGraphSO roomNodeGraph = EditorUtility.InstanceIDToObject(instanceID) as RoomNodeGraphSO;
         if (roomNodeGraph != null)
         {

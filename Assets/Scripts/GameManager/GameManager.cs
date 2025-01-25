@@ -19,19 +19,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private PlayerDetailsSO playerDetails;
     private Player player;
 
-    private GameState _gameState;
-
-
-
-    
-
-    public GameState gameState
-    {
-        get { return _gameState; }
-        set { _gameState = value; }
-    
-    }
-
+    [HideInInspector] public GameState gameState;
+    [HideInInspector] public GameState previousGameState;
 
 
     protected override void Awake()
@@ -55,7 +44,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
     }
-
+    private void Start()
+    {
+        previousGameState = GameState.gameStarted;
+        gameState = GameState.gameStarted;
+    }
 
     private void OnDisable()
     {
@@ -67,10 +60,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         SetCurrentRoom(roomChangedEventArgs.room);
     }
 
-    private void Start()
-    {
-        gameState = GameState.gameStarted;
-    }
+
 
     private void Update()
     {
@@ -129,6 +119,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public Sprite GetPlayerMiniMapIcon()
     {
         return playerDetails.playerMiniMapIcon;
+    }
+    public DungeonLevelSO GetCurrentDungeonLevel()
+    {
+        return dungeonLevelList[currentDungeonLevelListIndex];
     }
     #region Validation
 #if UNITY_EDITOR

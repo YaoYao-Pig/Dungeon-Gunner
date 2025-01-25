@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Hedusa_Red
   enemyPrefab: {fileID: 1952924959191413924, guid: 9dc7f94448cbcd842835c791bd16ce04, type: 3}
+  chaseDistance: 50
+  enemyStandardMaterial: {fileID: 0}
+  enemyMaterializeTime: 2
+  enemyMaterializeShader: {fileID: 0}
+  enemyMaterializeColor: {r: 0, g: 0, b: 0, a: 0}

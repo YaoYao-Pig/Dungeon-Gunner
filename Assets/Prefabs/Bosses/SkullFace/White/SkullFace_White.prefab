@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2a6e05932cc7db243b3bb6296cff5612, type: 2}
+    - target: {fileID: 547433531192878260, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: a918ac716eada42478fb2211a5438893, type: 2}
     - target: {fileID: 4248707989336275600, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 3
@@ -131,6 +135,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5912415921133491605, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
+      propertyPath: movementDetailsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 98e74d8d39e657344b4e2b9a8ac5c383, type: 2}
     - target: {fileID: 6463487567221387354, guid: bd3b556efe853d84daf92c6b0df45fda, type: 3}
       propertyPath: m_Sprite
       value: 
