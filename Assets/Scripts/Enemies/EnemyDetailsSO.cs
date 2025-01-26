@@ -10,6 +10,11 @@ public class EnemyDetailsSO : ScriptableObject
 
     public float chaseDistance = 50f;
 
+    [Header("Enemy Health")]
+    public EnemyHealthDetails[] enemyHealthDetailsArray;
+    public bool isImmuneAfterHit = false;
+    public float hitImmunityTime;
+
     [Header("Materialize")]
     public Material enemyStandardMaterial;
     public float enemyMaterializeTime;

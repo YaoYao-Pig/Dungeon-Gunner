@@ -10,7 +10,6 @@ public class PlayerDetailsSO : ScriptableObject
 
     public RuntimeAnimatorController runtimeAnimatorController;
 
-    public int playerHealthAmount;
 
     public Sprite playerMiniMapIcon;
 
@@ -21,6 +20,10 @@ public class PlayerDetailsSO : ScriptableObject
     public List<WeaponDetailsSO> startingWeaponList;
 
 
+    [Header("Health")]
+    public int playerHealthAmount;
+    public bool isImmuneAfterHit = false;
+    public float hitImmunityTime;
 #if UNITY_EDITOR
     private void OnValidate()
     {

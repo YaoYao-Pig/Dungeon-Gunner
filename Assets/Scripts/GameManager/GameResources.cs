@@ -36,7 +36,9 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
 
     public Shader variableLitShader;
+    [Header("UI")]
     public GameObject ammoIconPrefab;
+    public GameObject heartPrefab;
 
     [Header("Audio Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
@@ -47,5 +49,8 @@ public class GameResources : MonoBehaviour
     public TileBase[] enemyUnwalkableCollisionTilesArray;
 
     public TileBase preferredEnemyPathTile;
+
+   
+
 
 }

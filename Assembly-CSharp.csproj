@@ -134,6 +134,13 @@
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyWeaponAI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyHealthDetails.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthEvent.cs" />
+    <Compile Include="Assets\Scripts\Health\DestroyEvent.cs" />
+    <Compile Include="Assets\Scripts\Health\Destroyed.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Health\ReceiveContactDamage.cs" />
+    <Compile Include="Assets\Scripts\Health\DealContactDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

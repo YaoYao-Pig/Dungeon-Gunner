@@ -258,4 +258,29 @@ public class InstantiatedRoom : MonoBehaviour
     {
         boxCollider2D.enabled = false;
     }
+
+
+    public void UnlockDoors(int doorUnlockDelay=1)
+    {
+        StartCoroutine(UnlockDoorsRoutine(doorUnlockDelay));
+
+
+    }
+
+    private IEnumerator UnlockDoorsRoutine(int doorUnlockDelay)
+    {
+        if(doorUnlockDelay>0)
+            yield return new WaitForSeconds(doorUnlockDelay);
+        Door[] doorArray = GetComponentsInChildren<Door>();
+        foreach (Door door in doorArray)
+        {
+            door.UnLockDoor();
+        }
+        EnableRoomCollider();
+    }
+
+    private void EnableRoomCollider()
+    {
+        boxCollider2D.enabled = true;
+    }
 }

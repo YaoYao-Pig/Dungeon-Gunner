@@ -18,6 +18,7 @@ public static class Settings
     #region ROOM_Settings
     public const float fadeInTime = 0.5f;
     public const int maxChildCorridors = 3;
+    public const int doorUnlockDelay = 1;
     #endregion ROOM_Settings
 
     #region ANIMATOR PARAMETERS
@@ -55,7 +56,12 @@ public static class Settings
 
     #region UI PARAMETERS
     public const float uiAmmoIconSpacing = 4f;
+    public const float uiHeartSpacing = 16f;
 
+    #endregion
+
+    #region Enemy PARAMETERS
+    public const int defaultEnemyHealth = 20;
     #endregion
 
     #region PathFinding
@@ -67,5 +73,7 @@ public static class Settings
 
     #endregion
 
-
+    #region Contact Damage
+    public const float contactDamageCollisionResetDelay = 0.5f;
+    #endregion
 }

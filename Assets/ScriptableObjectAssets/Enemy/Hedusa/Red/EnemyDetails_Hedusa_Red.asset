@@ -15,7 +15,22 @@ MonoBehaviour:
   enemyName: Hedusa_Red
   enemyPrefab: {fileID: 1952924959191413924, guid: 9dc7f94448cbcd842835c791bd16ce04, type: 3}
   chaseDistance: 50
+  enemyHealthDetailsArray:
+  - dungeonLevel: {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
+    enemyHealthAmount: 12
+  - dungeonLevel: {fileID: 11400000, guid: 8ab89b0b7c6707d43bcca47a60a39297, type: 2}
+    enemyHealthAmount: 20
+  - dungeonLevel: {fileID: 11400000, guid: bf5f980240ac2ff4593ff65ea6f07ab9, type: 2}
+    enemyHealthAmount: 30
+  isImmuneAfterHit: 0
+  hitImmunityTime: 0
   enemyStandardMaterial: {fileID: 0}
   enemyMaterializeTime: 2
   enemyMaterializeShader: {fileID: 0}
   enemyMaterializeColor: {r: 0, g: 0, b: 0, a: 0}
+  enemyWeapon: {fileID: 0}
+  firingIntervalMin: 0.1
+  firingIntervalMax: 1
+  firingDurationMin: 1
+  firingDurationMax: 1
+  firingLineofSightRequired: 0

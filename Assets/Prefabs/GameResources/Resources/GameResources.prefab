@@ -50,6 +50,7 @@ MonoBehaviour:
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: -6465566751694194690, guid: a4dc3182fa0b2884c8f2bd59c6595c01, type: 3}
   ammoIconPrefab: {fileID: 4357628883640251690, guid: 60f4f8c51b3103c47abe7ca9907dfe6e, type: 3}
+  heartPrefab: {fileID: 8742636036631328729, guid: ba219a8323e6a884ba49c0af7fb14c40, type: 3}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   doorOpenCloseSoundEffect: {fileID: 11400000, guid: 9317e4b644abf344589c2e0f1ca40426, type: 2}
   enemyUnwalkableCollisionTilesArray:

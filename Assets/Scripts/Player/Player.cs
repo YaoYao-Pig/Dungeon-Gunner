@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 #region REQUIRE
+[RequireComponent(typeof(PlayerControl))]
 [RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SortingLayer))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -16,6 +17,9 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(FireWeapon))]
 [RequireComponent(typeof(PlayerControl))]
+[RequireComponent(typeof(ReceiveContactDamage))]
+[RequireComponent(typeof(DealContactDamage))]
+
 [RequireComponent(typeof(Idle))]
 [RequireComponent(typeof(AimWeapon))]
 [RequireComponent(typeof(MovementByVelocity))]
@@ -35,6 +39,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
     [HideInInspector] public ActiveWeapon activeWeapon;
+    [HideInInspector] public Destroyed destroyed;
+    [HideInInspector] public PlayerControl playerControl;
 
 
     [HideInInspector] public IdleEvent idleEvent;
@@ -47,13 +53,17 @@ public class Player : MonoBehaviour
     [HideInInspector] public ReloadWeaponEvent reloadWeaponEvent;
     [HideInInspector] public WeaponReloadedEvent weaponReloadedEvent;
     [HideInInspector] public UpdateContinueShootEvent updateContinueShootEvent;
+    [HideInInspector] public DestroyEvent destroyEvent;
+    [HideInInspector] public HealthEvent healthEvent;
     public List<Weapon> weaponList = new List<Weapon>();
     private void Awake()
     {
+        playerControl = GetComponent<PlayerControl>();
         health = GetComponent<Health>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         activeWeapon = GetComponent<ActiveWeapon>();
+        destroyed = GetComponent<Destroyed>();
 
         idleEvent = GetComponent<IdleEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
@@ -65,7 +75,22 @@ public class Player : MonoBehaviour
         reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
         weaponReloadedEvent = GetComponent<WeaponReloadedEvent>();
         updateContinueShootEvent = GetComponent<UpdateContinueShootEvent>();
+        healthEvent = GetComponent<HealthEvent>();
+        destroyEvent = GetComponent<DestroyEvent>();
     }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
+    }
+
+
+
 
     public void Initialise(PlayerDetailsSO playerDetails)
     {
@@ -111,5 +136,14 @@ public class Player : MonoBehaviour
     public Vector3 GetPlayerPosition()
     {
         return transform.position;
+    }
+
+    private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        //Debug.Log("Health Amount" + healthEventArgs.healthAmount);
+        if (healthEventArgs.healthAmount < 0f)
+        {
+            destroyEvent.CallDestroyedEvent(true);
+        }
     }
 }

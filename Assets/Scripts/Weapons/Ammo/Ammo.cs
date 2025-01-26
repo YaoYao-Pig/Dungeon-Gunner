@@ -16,6 +16,7 @@ public class Ammo : MonoBehaviour, IFireable
     private float ammoChargeTimer;
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
+    private bool isColliding = false;
 
     private void Awake()
     {
@@ -53,8 +54,21 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isColliding) return;
+
+        DealDamage(collision);
         AmmoHitEffect();
         DisableAmmo();
+    }
+
+    private void DealDamage(Collider2D collision)
+    {
+        Health health = collision.GetComponent<Health>();
+        if (health != null)
+        {
+            isColliding = true;
+            health.TakeDamage(ammoDetails.ammoDamage);
+        }
     }
 
     private void AmmoHitEffect()
@@ -78,11 +92,13 @@ public class Ammo : MonoBehaviour, IFireable
         spriteRenderer.material = ammoChargeMaterial;
     }
 
+    //会被PoolManager回收，因此所有变量包括bool需要初始化
     public void InitialiseAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)
     {
         #region Ammo
 
         this.ammoDetails = ammoDetails;
+        isColliding = false;
         SetFireDirection(ammoDetails, aimAngle, weaponAimAngle, weaponAimDirectionVector);
 
         spriteRenderer.sprite = ammoDetails.ammoSprite;

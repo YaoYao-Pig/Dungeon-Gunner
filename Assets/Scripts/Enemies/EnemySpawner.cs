@@ -96,10 +96,39 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         GameObject enemy = Instantiate(enemyDetail.enemyPrefab, worldPosition, Quaternion.identity, transform);
 
         enemy.GetComponent<Enemy>().EnemyInitialization(enemyDetail, enemiesSpawnedSoFar, currentDungeonLevel);
+        enemy.GetComponent<DestroyEvent>().OnDestroyed += EnemySpawner_OnDestroyed;
     }
+
 
     private float GetEnemySpawnInterval()
     {
         return UnityEngine.Random.Range(roomEnemySpawnParameters.minSpawnInterval, roomEnemySpawnParameters.maxSpawnInterval);
     }
+
+    private void EnemySpawner_OnDestroyed(DestroyEvent destroyEvent,DestroyEventArgs destroyEventArgs)
+    {
+        destroyEvent.OnDestroyed -= EnemySpawner_OnDestroyed;
+        currentEnemyCount--;
+
+        if (currentEnemyCount <= 0 && enemiesSpawnedSoFar == enemiesToSpawn)
+        {
+            currentRoom.isClearedOfEnemies = true;
+
+            if (GameManager.Instance.gameState == GameState.engagingEnemies)
+            {
+                GameManager.Instance.gameState = GameState.playingLevel;
+                GameManager.Instance.previousGameState = GameState.engagingEnemies;
+            }
+            else if (GameManager.Instance.gameState == GameState.engagingBoss)
+            {
+                GameManager.Instance.gameState = GameState.bossStage;
+                GameManager.Instance.previousGameState = GameState.engagingBoss;
+            }
+            currentRoom.instantiatedRoom.UnlockDoors(Settings.doorUnlockDelay);
+
+            //当有Enemy被打败-> [触发事件]检测是否是最后一个-> [触发事件]检测是否所有普通房间都被探索完毕
+            StaticEventHandler.CallRoomEnemiesDefeatedEvent(currentRoom);
+        }
+    }
+
 }
