@@ -15,5 +15,18 @@ public class EnemyDetailsSO : ScriptableObject
     public float enemyMaterializeTime;
     public Shader enemyMaterializeShader;
     public Color enemyMaterializeColor;
+    [Header("Weapon")]
+    public WeaponDetailsSO enemyWeapon;
+
+    //间隔
+    public float firingIntervalMin = 0.1f;
+    public float firingIntervalMax = 1f;
+    //持续时间
+    public float firingDurationMin = 1f;
+    public float firingDurationMax = 1f;
+
+    //是否需要无遮挡
+    public bool firingLineofSightRequired;
+
 
 }

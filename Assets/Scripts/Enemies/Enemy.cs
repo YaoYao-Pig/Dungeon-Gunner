@@ -12,6 +12,9 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(MaterializeEffect))]
+[RequireComponent(typeof(AimWeapon))]
+[RequireComponent(typeof(FireWeapon))]
+[RequireComponent(typeof(ReloadWeapon))]
 
 [RequireComponent(typeof(EnemyMovementAI))]
 [RequireComponent(typeof(MovementToPosition))]
@@ -22,6 +25,11 @@ using UnityEngine.Rendering;
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public EnemyDetailsSO enemyDetails;
+    [HideInInspector] public AimWeaponEvent aimWeaponEvent;
+    [HideInInspector] public FireWeaponEvent fireWeaponEvent;
+    private SetActiveWeaponEvent setActiveWeaponEvent;
+    private FireWeapon fireWeapon;
+
     private CircleCollider2D circleCollider2D;
     private PolygonCollider2D polygonCollider2D;
     [HideInInspector] public SpriteRenderer[] spriteRendererArray;
@@ -40,9 +48,15 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         materializeEffect = GetComponent<MaterializeEffect>();
 
+        fireWeapon = GetComponent<FireWeapon>();
+
         enemyMovementAI = GetComponent<EnemyMovementAI>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
         idleEvent = GetComponent<IdleEvent>();
+        aimWeaponEvent = GetComponent<AimWeaponEvent>();
+        fireWeaponEvent = GetComponent<FireWeaponEvent>();
+
+        setActiveWeaponEvent = GetComponent<SetActiveWeaponEvent>();
     }
 
     public void EnemyInitialization(EnemyDetailsSO enemyDetails,int enemySpawnNumber,DungeonLevelSO dungeonLevel)
@@ -50,6 +64,9 @@ public class Enemy : MonoBehaviour
         this.enemyDetails = enemyDetails;
 
         SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+        SetEnemyStartingWeapon();
+
         SetEnemyAnimationSpeed();
 
         StartCoroutine(MaterializeEnemy());
@@ -57,11 +74,27 @@ public class Enemy : MonoBehaviour
     }
 
 
-
     private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
     {
         enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber);
     }
+
+    private void SetEnemyStartingWeapon()
+    {
+        if (enemyDetails.enemyWeapon != null)
+        {
+            Weapon weapon = new Weapon()
+            {
+                weaponDetails = enemyDetails.enemyWeapon,
+                weaponReloadTimer = 0f,
+                weaponClipRemainingAmmo = enemyDetails.enemyWeapon.weaponClipAmmoCapacity,
+                weaponRemainAmmo = enemyDetails.enemyWeapon.weaponAmmoCapacity,
+                isWeaponReloading = false
+            };
+            setActiveWeaponEvent.CallSetActiveWeaponEvent(weapon);
+        }
+    }
+
 
     private void SetEnemyAnimationSpeed()
     {
@@ -82,5 +115,7 @@ public class Enemy : MonoBehaviour
         polygonCollider2D.enabled = isEnabled;
 
         enemyMovementAI.enabled = isEnabled;
+
+        fireWeapon.enabled = isEnabled;
     }
 }
