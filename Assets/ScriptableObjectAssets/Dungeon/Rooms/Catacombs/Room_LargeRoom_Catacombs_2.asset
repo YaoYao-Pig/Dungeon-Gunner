@@ -104,23 +104,44 @@ MonoBehaviour:
       ratio: 4
   roomEnemySpawnParameters:
   - dungeonLevel: {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
-    minTotalEnemiesToSpwan: 7
+    minTotalEnemiesToSpwan: 5
     maxTotalEnemiesToSpwan: 10
     minConcurrentEnemies: 4
     maxConcurrentEnemies: 6
     minSpawnInterval: 2
     maxSpawnInterval: 5
   - dungeonLevel: {fileID: 11400000, guid: 8ab89b0b7c6707d43bcca47a60a39297, type: 2}
-    minTotalEnemiesToSpwan: 10
-    maxTotalEnemiesToSpwan: 15
+    minTotalEnemiesToSpwan: 5
+    maxTotalEnemiesToSpwan: 10
     minConcurrentEnemies: 5
     maxConcurrentEnemies: 7
     minSpawnInterval: 1
     maxSpawnInterval: 5
   - dungeonLevel: {fileID: 11400000, guid: bf5f980240ac2ff4593ff65ea6f07ab9, type: 2}
-    minTotalEnemiesToSpwan: 11
-    maxTotalEnemiesToSpwan: 15
-    minConcurrentEnemies: 6
+    minTotalEnemiesToSpwan: 6
+    maxTotalEnemiesToSpwan: 12
+    minConcurrentEnemies: 4
+    maxConcurrentEnemies: 8
+    minSpawnInterval: 1
+    maxSpawnInterval: 4
+  - dungeonLevel: {fileID: 11400000, guid: 9012222c4544bee43904527de2efd679, type: 2}
+    minTotalEnemiesToSpwan: 6
+    maxTotalEnemiesToSpwan: 12
+    minConcurrentEnemies: 4
+    maxConcurrentEnemies: 8
+    minSpawnInterval: 1
+    maxSpawnInterval: 4
+  - dungeonLevel: {fileID: 11400000, guid: 5ab2a58be2f5c534f871412878ca403b, type: 2}
+    minTotalEnemiesToSpwan: 6
+    maxTotalEnemiesToSpwan: 12
+    minConcurrentEnemies: 4
+    maxConcurrentEnemies: 8
+    minSpawnInterval: 1
+    maxSpawnInterval: 4
+  - dungeonLevel: {fileID: 11400000, guid: a9d52df7cbe9b1a43a3c89c42886b77e, type: 2}
+    minTotalEnemiesToSpwan: 6
+    maxTotalEnemiesToSpwan: 12
+    minConcurrentEnemies: 4
     maxConcurrentEnemies: 8
     minSpawnInterval: 1
     maxSpawnInterval: 4

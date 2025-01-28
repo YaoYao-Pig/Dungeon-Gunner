@@ -33,5 +33,7 @@ public class EnemyDetailsSO : ScriptableObject
     //是否需要无遮挡
     public bool firingLineofSightRequired;
 
+    public bool isHealthBarDisplayed = false;
+
 
 }

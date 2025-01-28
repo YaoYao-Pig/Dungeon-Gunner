@@ -34,3 +34,4 @@ MonoBehaviour:
   firingDurationMin: 8
   firingDurationMax: 10
   firingLineofSightRequired: 0
+  isHealthBarDisplayed: 1

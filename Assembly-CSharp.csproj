@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\FireWeapon.cs" />
     <Compile Include="Assets\Scripts\AStar\AStarTest.cs" />
     <Compile Include="Assets\Scripts\AStar\Node.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthEvent.cs" />
     <Compile Include="Assets\Scripts\Misc\SingletonMonobehaviour.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementDetailsSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeapon.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\Enemies\AnimateEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDetailsSO.cs" />
     <Compile Include="Assets\Scripts\AStar\AStar.cs" />
+    <Compile Include="Assets\Scripts\Health\DestroyEvent.cs" />
     <Compile Include="Assets\Scripts\Movement\Idle.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatePlayer.cs" />
     <Compile Include="Assets\Scripts\Effects\MaterializeEffect.cs" />
@@ -80,12 +82,14 @@
     <Compile Include="Assets\Scripts\Dungeon\Door.cs" />
     <Compile Include="Assets\Scripts\Utilities\RandomSpawnableObject.cs" />
     <Compile Include="Assets\Scripts\Dungeon\DungeonLevelSO.cs" />
+    <Compile Include="Assets\Scripts\GameManager\ActivateRooms.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Dungeon\InstantiatedRoom.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundEffect.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\WeaponShootEffect.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\SetActiveWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Room.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyWeaponAI.cs" />
     <Compile Include="Assets\Scripts\Dungeon\RoomEnemySpawnParameters.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\UpdateContinueShootEvent.cs" />
     <Compile Include="Assets\Scripts\Utilities\HelperUtilities.cs" />
@@ -103,9 +107,12 @@
     <Compile Include="Assets\Scripts\Dungeon\DoorLightingControl.cs" />
     <Compile Include="Assets\Scripts\Misc\CinemachineTarget.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Health\DealContactDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\WeaponDetailsSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\Health\Destroyed.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\WeaponFiredEvent.cs" />
@@ -122,25 +129,21 @@
     <Compile Include="Assets\Scripts\Weapons\Ammo\AmmoDetailsSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\ReloadWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\ReloadWeapon.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreUI.cs" />
     <Compile Include="Assets\Scripts\Misc\ScreenCursor.cs" />
     <Compile Include="Assets\Scripts\Movement\IdleEvent.cs" />
     <Compile Include="Assets\Scripts\AStar\GridNodes.cs" />
+    <Compile Include="Assets\Scripts\Health\ReceiveContactDamage.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementByVelocity.cs" />
     <Compile Include="Assets\Scripts\Dungeon\RoomTemplateSO.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyMovementAI.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundEffectSO.cs" />
     <Compile Include="Assets\Scripts\Dungeon\SpawnTest.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyHealthDetails.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeaponEvent.cs" />
-    <Compile Include="Assets\Scripts\Enemies\EnemyWeaponAI.cs" />
-    <Compile Include="Assets\Scripts\Enemies\EnemyHealthDetails.cs" />
-    <Compile Include="Assets\Scripts\Health\HealthEvent.cs" />
-    <Compile Include="Assets\Scripts\Health\DestroyEvent.cs" />
-    <Compile Include="Assets\Scripts\Health\Destroyed.cs" />
-    <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
-    <Compile Include="Assets\Scripts\Health\ReceiveContactDamage.cs" />
-    <Compile Include="Assets\Scripts\Health\DealContactDamage.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     private HealthEvent healthEvent;
     [HideInInspector] public bool isDamagebale = true;
     private Player player;
-    private Enemy enemy;
+    [HideInInspector] public Enemy enemy;
 
     [Header("Immunity")]
     private bool isImmunityAfterHit = false;
@@ -21,6 +21,8 @@ public class Health : MonoBehaviour
     private const float spriteFlashInterval = 0.2f;
     private WaitForSeconds waitForSeconds = new WaitForSeconds(spriteFlashInterval);
     public Coroutine immunityCoroutine;
+    [SerializeField] private HealthBar healthBar;
+
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+
         CallHealthEvent(0);
 
         player = GetComponent<Player>();
@@ -55,6 +58,15 @@ public class Health : MonoBehaviour
                 }
             }
         }
+
+        if (enemy != null && enemy.enemyDetails.isHealthBarDisplayed == true && healthBar != null)
+        {
+            healthBar.EnableHealthBar();
+        }
+        else if(healthBar!=null)
+        {
+            healthBar.DisableHealthBar();
+        }
     }
 
     public void TakeDamage(int damageAmount)
@@ -70,6 +82,10 @@ public class Health : MonoBehaviour
             CallHealthEvent(damageAmount);
 
             PostHitImmunity();
+            if (healthBar != null)
+            {
+                healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+            }
         }
     }
 
