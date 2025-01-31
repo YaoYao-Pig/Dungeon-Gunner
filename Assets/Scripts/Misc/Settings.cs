@@ -1,4 +1,5 @@
-  using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +41,8 @@ public static class Settings
 
     public static int open = Animator.StringToHash("open");
 
+    public static String stateDestroyed = "Destroyed";
+    public static int destroy = Animator.StringToHash("destroy");
     #endregion ANIMATOR PARAMETERS
 
 

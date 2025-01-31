@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_Hedusa_Green
   m_EditorClassIdentifier: 
   enemyName: Hedusa_Green
-  enemyPrefab: {fileID: 1952924959191413924, guid: 8f9ed8f90b4c86442855999cf4872c63, type: 3}
+  enemyPrefab: {fileID: 1952924959191413924, guid: 34ed3c3dd72d7bf45ae051745399ce3d, type: 3}
   chaseDistance: 50
   enemyHealthDetailsArray:
   - dungeonLevel: {fileID: 11400000, guid: 32c62d9c3a84bf94f8aaec1f0034da24, type: 2}
@@ -28,9 +28,10 @@ MonoBehaviour:
   enemyMaterializeTime: 2
   enemyMaterializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   enemyMaterializeColor: {r: 0.15690637, g: 0.2425058, b: 0.8113208, a: 1}
-  enemyWeapon: {fileID: 0}
-  firingIntervalMin: 0.1
-  firingIntervalMax: 1
-  firingDurationMin: 1
-  firingDurationMax: 1
+  enemyWeapon: {fileID: 11400000, guid: 8cfbc48de14467f42bd1bddd24840d5d, type: 2}
+  firingIntervalMin: 1
+  firingIntervalMax: 3
+  firingDurationMin: 7
+  firingDurationMax: 10
   firingLineofSightRequired: 0
+  isHealthBarDisplayed: 0

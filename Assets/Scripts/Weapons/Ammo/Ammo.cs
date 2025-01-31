@@ -40,19 +40,22 @@ public class Ammo : MonoBehaviour, IFireable
             SetAmmoMaterial(ammoDetails.ammoChargeMaterial);
             isAmmoMaterialSet = true;
         }
-
-        Vector3 distanceVector = fireDirectionVector * ammoSpeed * Time.deltaTime;
-        transform.position += distanceVector;
-
-        ammoRange -= distanceVector.magnitude;
-        if (ammoRange <= 0f)
+        if (!overrideAmmoMovement)
         {
-            if (ammoDetails.isPlayerAmmo)
+            Vector3 distanceVector = fireDirectionVector * ammoSpeed * Time.deltaTime;
+            transform.position += distanceVector;
+
+            ammoRange -= distanceVector.magnitude;
+            if (ammoRange <= 0f)
             {
-                StaticEventHandler.CallMultiplierEvent(false);
+                if (ammoDetails.isPlayerAmmo)
+                {
+                    StaticEventHandler.CallMultiplierEvent(false);
+                }
+                DisableAmmo();
             }
-            DisableAmmo();
         }
+
     }
 
 
@@ -160,6 +163,7 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void SetFireDirection(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, Vector3 weaponAimDirectionVector)
     {
+
         float randomSpread = UnityEngine.Random.Range(ammoDetails.ammoSpreadMin, ammoDetails.ammoSpreadMax);
 
         int spreadToggle = UnityEngine.Random.Range(0, 2) * 2 - 1;

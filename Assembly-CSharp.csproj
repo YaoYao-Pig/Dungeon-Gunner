@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeTypeSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\WeaponReloadedEvent.cs" />
     <Compile Include="Assets\Scripts\StaticEvents\StaticEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\FireWeaponEvent.cs" />
     <Compile Include="Assets\Scripts\Weapons\Ammo\IFireable.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Assets\Scripts\Health\ReceiveContactDamage.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementByVelocity.cs" />
     <Compile Include="Assets\Scripts\Dungeon\RoomTemplateSO.cs" />
+    <Compile Include="Assets\Scripts\Environment\DestroyableItem.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyMovementAI.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundEffectSO.cs" />
     <Compile Include="Assets\Scripts\Dungeon\SpawnTest.cs" />
@@ -143,7 +145,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthDetails.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeaponEvent.cs" />
-    <Compile Include="Assets\Scripts\Health\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Ammo\AmmoPattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

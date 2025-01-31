@@ -65,6 +65,8 @@ MonoBehaviour:
       ratio: 6
     - dungeonObject: {fileID: 11400000, guid: c1a6b54aadc496c4eaffcfbd16f3dd45, type: 2}
       ratio: 6
+    - dungeonObject: {fileID: 11400000, guid: c9f3827a96c211e4ba573c993896761b, type: 2}
+      ratio: 6
   - dungeonLevel: {fileID: 11400000, guid: 8ab89b0b7c6707d43bcca47a60a39297, type: 2}
     spawnableObjectRatioList:
     - dungeonObject: {fileID: 11400000, guid: 94986fd59a249414a8c48143c900b0e7, type: 2}

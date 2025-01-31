@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7baf00631f4294ab5c29ac88e2c16a, type: 3}
+  m_Name: AmmoHitEffect_HedusaPattern
+  m_EditorClassIdentifier: 
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.4292453, b: 0.6832832, a: 1}
+    key2: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.75686276}
+    key3: {r: 1, g: 0.5424528, b: 0.5424528, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 1}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 17348
+    ctime2: 38550
+    ctime3: 52814
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 25058
+    atime2: 48573
+    atime3: 65535
+    atime4: 65535
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 4
+  duration: 0.5
+  startParticaleSize: 0.34
+  startParticaleSpeed: 4.21
+  startLifeTime: 0.67
+  maxParticleNumber: 37
+  effectGravity: -0.01
+  emissionRate: 0
+  burstParticleNumber: 37
+  sprite: {fileID: 21300000, guid: bb7ccf2391a6a544ab96e81e36b6a0ed, type: 3}
+  velocityOverLifeTimeMin: {x: 0, y: 0, z: 0}
+  velocityOverLifeTimeMax: {x: 0, y: 0, z: 0}
+  ammoHitEffectPrefab: {fileID: 2633516574337918981, guid: e49fb5f58d3647c43a0cd8d133beaf10, type: 3}
