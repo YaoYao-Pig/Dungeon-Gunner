@@ -36,6 +36,8 @@ public class GameResources : MonoBehaviour
     public Material litMaterial;
 
     public Shader variableLitShader;
+
+    public Shader materializeShader;
     [Header("UI")]
     public GameObject ammoIconPrefab;
     public GameObject heartPrefab;
@@ -50,7 +52,13 @@ public class GameResources : MonoBehaviour
 
     public TileBase preferredEnemyPathTile;
 
-   
+    [Header("Chest")]
+    public SoundEffectSO chestOpen;
+    public SoundEffectSO healthPickup;
+    public SoundEffectSO weaponPickup;
+    public SoundEffectSO ammoPickup;
 
-
+    public GameObject chestItemPrefab;
+    public Sprite heartIcon;
+    public Sprite bulletIcon;
 }

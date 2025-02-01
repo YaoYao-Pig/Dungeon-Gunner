@@ -41,6 +41,8 @@ public static class Settings
 
     public static int open = Animator.StringToHash("open");
 
+    public static int use = Animator.StringToHash("use");
+
     public static String stateDestroyed = "Destroyed";
     public static int destroy = Animator.StringToHash("destroy");
     #endregion ANIMATOR PARAMETERS

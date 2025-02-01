@@ -49,6 +49,7 @@ MonoBehaviour:
   dimmedMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: -6465566751694194690, guid: a4dc3182fa0b2884c8f2bd59c6595c01, type: 3}
+  materializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   ammoIconPrefab: {fileID: 4357628883640251690, guid: 60f4f8c51b3103c47abe7ca9907dfe6e, type: 3}
   heartPrefab: {fileID: 8742636036631328729, guid: ba219a8323e6a884ba49c0af7fb14c40, type: 3}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
@@ -57,3 +58,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
   - {fileID: 11400000, guid: 98f177f8276c38b429705e6720c48672, type: 2}
   preferredEnemyPathTile: {fileID: 11400000, guid: 3ce5fb260af53d24887b55c3d50041e2, type: 2}
+  chestOpen: {fileID: 11400000, guid: 7f75b1452fda6fe4b9619e5bf371f7a8, type: 2}
+  healthPickup: {fileID: 11400000, guid: 56edc2f085b15794c90c4932e93dfc20, type: 2}
+  weaponPickup: {fileID: 11400000, guid: 9a7577224eb1b194da8d7c73bf742772, type: 2}
+  ammoPickup: {fileID: 11400000, guid: 7e54481cad01ad240a8eeec86d5bb2a5, type: 2}
+  chestItemPrefab: {fileID: 285905183262763500, guid: d61007bd9ae8e1e48b6c18e3b0f7c763, type: 3}
+  heartIcon: {fileID: 21300000, guid: 93356131eec0f44458223985928ac6e3, type: 3}
+  bulletIcon: {fileID: 21300000, guid: a2482871b46d396438236c07b6402283, type: 3}

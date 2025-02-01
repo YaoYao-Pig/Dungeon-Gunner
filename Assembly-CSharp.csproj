@@ -56,7 +56,9 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Player\IUsable.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementToPositionEvent.cs" />
+    <Compile Include="Assets\Scripts\Chest\ChestItem.cs" />
     <Compile Include="Assets\Scripts\MiniMap\MiniMap.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeTypeListSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\WeaponReloaded.cs" />
@@ -64,11 +66,13 @@
     <Compile Include="Assets\Scripts\AStar\AStarTest.cs" />
     <Compile Include="Assets\Scripts\AStar\Node.cs" />
     <Compile Include="Assets\Scripts\Health\HealthEvent.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Ammo\AmmoPattern.cs" />
     <Compile Include="Assets\Scripts\Misc\SingletonMonobehaviour.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementDetailsSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeapon.cs" />
     <Compile Include="Assets\Scripts\Utilities\SpawnableObjectRatio.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\ActiveWeapon.cs" />
+    <Compile Include="Assets\Scripts\Chest\ChestSpawner.cs" />
     <Compile Include="Assets\Scripts\Player\CurrentPlayerSO.cs" />
     <Compile Include="Assets\Scripts\Enemies\AnimateEnemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDetailsSO.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="Assets\Scripts\Weapons\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Health\DealContactDamage.cs" />
     <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Chest\Chest.cs" />
     <Compile Include="Assets\Scripts\NodeGraph\RoomNodeSO.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\WeaponDetailsSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
@@ -145,7 +150,6 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyHealthDetails.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementToPosition.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapons\Event\AimWeaponEvent.cs" />
-    <Compile Include="Assets\Scripts\Weapons\Ammo\AmmoPattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

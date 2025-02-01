@@ -146,4 +146,17 @@ public class Player : MonoBehaviour
             destroyEvent.CallDestroyedEvent(true,0);
         }
     }
+
+    public bool IsWeaponHeldByPlayer(WeaponDetailsSO weaponDetails)
+    {
+        foreach(Weapon weapon in weaponList)
+        {
+            if (weaponDetails == weapon.weaponDetails)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

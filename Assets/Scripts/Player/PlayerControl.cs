@@ -52,8 +52,28 @@ public class PlayerControl : MonoBehaviour
         MoveInput();
         WeaponInput();
 
+        UseItem();
         PlayerRollCooldownTimer();
     }
+
+    private void UseItem()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            float userItemradius = 2f;
+
+            Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(player.GetPlayerPosition(), userItemradius);
+            foreach(var collider in collider2DArray)
+            {
+                IUsable usable = collider.GetComponent<IUsable>();
+                if (usable != null)
+                {
+                    usable.UseItem();
+                }
+            }
+        }
+    }
+
     private void SetStartingWeapon()
     {
         int index = 1;
